@@ -1,0 +1,46 @@
+name: Robot Framework Testing
+run-name: Robot Framework Testing started by ${{github.actor}}
+
+on:
+  pull_request:
+  workflow_dispatch:  # Execute the workflow manually from the Actions tab on GitHub.
+  workflow_call:  # Execute the workflow from another.
+  schedule:  # Execute the workflow on the defined schedule(s). See: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
+  - cron: '0 7 * * 1-5' # From Monday to Friday at 07:00AM
+
+jobs:
+  testsuite-regression:
+    name: Run Robot Framework Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    env:
+      TEST_PLAN_KEY: JIRA-0000
+      TEST_PATH: TestCases/TestSuiteRegression
+      RESULTS_DIR: results
+      ARTIFACT_NAME: TestSuiteRegression-report
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Robot Framework test suite
+        run: |
+          python -m robot --outputdir ${RESULTS_DIR} ${TEST_PATH}
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.ARTIFACT_NAME }}
+          path: ${{ env.RESULTS_DIR }}

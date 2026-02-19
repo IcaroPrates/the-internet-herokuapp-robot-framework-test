@@ -1,0 +1,10 @@
+.idea/
+.venv/
+__pycache__/
+*.pyc
+*.*_history
+Reports/*
+report*
+report/*
+results*
+# .env in a real project should be in .gitignore, but for this example we need to keep it in the repo to make work without needing to set up environment variables locally.

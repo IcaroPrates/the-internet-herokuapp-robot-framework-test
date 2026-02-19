@@ -1,0 +1,12 @@
+robotframework                    # Generic automation framework for acceptance testing and robotic process automation (RPA).
+robotframework-seleniumlibrary    # Web testing library for Robot Framework.
+selenium                          # Used to interact with web pages thru a browser.
+hvac                              # Python client for HashiCorp's HVAC API.
+PyJWT                             # JSON Web Token implementation in Python.
+python-dotenv                     # Used to load environment variables, from .env files, during script runtime.
+robotframework-robocop            # Robotframework linter cmd: robocop --report rules_by_error_type *.robot
+flake8                            # Python linter cmd: flake8 Path/to/file OR root folder
+typing_extensions                 # To fix an import that was removed in new selenium version
+robotframework-pabot              # To run parallel tests with differents processors
+robotframework-jsonlibrary        # To handle json
+robotframework-requests           # To call and handle API's

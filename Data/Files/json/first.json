@@ -1,0 +1,23 @@
+{
+  "status": "success",
+  "user_id": 12345,
+  "account_number": "ACC-98765",
+  "transactions": [
+    {
+      "id": "TXN001",
+      "date": "2026-02-19",
+      "amount": 150.50,
+      "type": "withdrawal",
+      "description": "ATM Withdrawal"
+    },
+    {
+      "id": "TXN002",
+      "date": "2026-02-18",
+      "amount": 1000.00,
+      "type": "deposit",
+      "description": "Salary Deposit"
+    }
+  ],
+  "balance": 5249.50,
+  "currency": "EUR"
+}
