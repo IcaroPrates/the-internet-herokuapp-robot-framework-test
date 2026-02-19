@@ -6,7 +6,7 @@ on:
   workflow_dispatch:  # Execute the workflow manually from the Actions tab on GitHub.
   workflow_call:  # Execute the workflow from another.
   schedule:  # Execute the workflow on the defined schedule(s). See: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
-  - cron: '0 7 * * 1-5' # From Monday to Friday at 07:00AM
+  # - cron: '0 7 * * 1-5' # From Monday to Friday at 07:00AM
 
 jobs:
   testsuite-regression:
